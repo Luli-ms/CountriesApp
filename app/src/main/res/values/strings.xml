@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">CountriesApp</string>
     <string name="imagen_desc">Bandera del país</string>
+    <string name="europe">Europe</string>
+    <string name="america">America</string>
+    <string name="asia">Asia</string>
+    <string name="africa">Africa</string>
+    <string name="oceania">Oceania</string>
+    <string name="poblacion">"poblacion: "</string>
 </resources>
