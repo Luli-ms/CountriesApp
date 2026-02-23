@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.utad.countriesapp.R
 import com.utad.countriesapp.data.CountryRepository
 import com.utad.countriesapp.data.model.Pais
@@ -59,6 +60,16 @@ class MainActivity : AppCompatActivity() {
                 else -> getString(R.string.app_name)
             }
         }
+        viewModel.error.observe(this) {
+            showSnackBarMessage(it)
+        }
+        viewModel.isLoading.observe(this) { loading ->
+            if (loading == true) {
+                binding.progressCircular.show()
+            } else {
+                binding.progressCircular.hide()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,5 +104,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("pais", pais)
         startActivity(intent)
+    }
+
+    private fun showSnackBarMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).show()
     }
 }

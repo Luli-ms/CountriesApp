@@ -13,16 +13,21 @@ class CountriesViewModel(
 ): ViewModel() {
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
     private val _countries = MutableLiveData<List<Pais>>()
     val countries: LiveData<List<Pais>> get() = _countries
 
     fun fetchCountriesByContinent(continent: String) {
         viewModelScope.launch {
+            _isLoading.postValue(true)
             try {
                 val countries = repository.getPeliculas(continent)
                 _countries.postValue(countries)
             } catch (e: Exception) {
                 _error.postValue("Error fetching countries: ${e.message}")
+            } finally {
+                _isLoading.postValue(false)
             }
         }
     }
