@@ -2,7 +2,6 @@ package com.utad.countriesapp.ui.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -51,6 +50,14 @@ class MainActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.countries.observe(this) { countries ->
             adapter.submitList(countries)
+            this.title = when (selectedContinent) {
+                "europe" -> getString(R.string.europe)
+                "america" -> getString(R.string.america)
+                "asia" -> getString(R.string.asia)
+                "africa" -> getString(R.string.africa)
+                "oceania" -> getString(R.string.oceania)
+                else -> getString(R.string.app_name)
+            }
         }
     }
 

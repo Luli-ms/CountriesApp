@@ -6,5 +6,7 @@
     <string name="asia">Asia</string>
     <string name="africa">Africa</string>
     <string name="oceania">Oceania</string>
-    <string name="poblacion">"poblacion: "</string>
+    <string name="poblacion">"Poblacion: "</string>
+    <string name="capital">"Capital: "</string>
+    <string name="habitantes">" habitantes"</string>
 </resources>

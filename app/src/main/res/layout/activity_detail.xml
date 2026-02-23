@@ -21,34 +21,24 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/tv_capital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" />
+            android:layout_weight="1"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"/>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_poblacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_weight="0"
-                android:text="@string/poblacion" />
-
-            <TextView
-                android:id="@+id/tv_poblacion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_weight="0" />
-        </LinearLayout>
+            android:textAlignment="center"/>
 
     </LinearLayout>
 
